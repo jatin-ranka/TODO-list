@@ -20,7 +20,15 @@ class Todo
   end
 
   def to_displayable_string
-    ans = "[] #{@text}"
+    ans = ""
+    if @completed
+      ans.concat("[x] ")
+    else
+      ans.concat("[] ")
+    end
+
+    ans.concat(@text)
+
     unless dueToday?
       ans.concat(" #{@due_date}")
     end
